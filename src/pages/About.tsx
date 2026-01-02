@@ -5,22 +5,10 @@ import {
   FlaskConical,
   Users,
   Award,
-  Brain,
-  Dna,
-  Microscope,
-  Atom,
-  Cpu,
-  Leaf,
+
 } from "lucide-react";
 import { useToast } from "../components/ui/use-toast";
 
-/* ---------- TYPES ---------- */
-type ResearchArea = {
-  icon: FC<{ className?: string }>;
-  title: string;
-  description: string;
-  color: string;
-};
 
 /* ---------- COMPONENT ---------- */
 const Home: FC = () => {
@@ -32,45 +20,6 @@ const Home: FC = () => {
     });
   };
 
-  const areas: ResearchArea[] = [
-    {
-      icon: Brain,
-      title: "Cognitive Science",
-      description:
-        "Exploring the mechanisms of human cognition and brain function",
-      color: "from-blue-500 to-blue-600",
-    },
-    {
-      icon: Dna,
-      title: "Biotechnology",
-      description: "Advancing genetic research and medical innovations",
-      color: "from-indigo-500 to-indigo-600",
-    },
-    {
-      icon: Microscope,
-      title: "Materials Science",
-      description: "Developing next-generation materials and compounds",
-      color: "from-purple-500 to-purple-600",
-    },
-    {
-      icon: Atom,
-      title: "Quantum Physics",
-      description: "Investigating quantum phenomena and applications",
-      color: "from-blue-600 to-indigo-600",
-    },
-    {
-      icon: Cpu,
-      title: "AI & Machine Learning",
-      description: "Creating intelligent systems and algorithms",
-      color: "from-cyan-500 to-cyan-600",
-    },
-    {
-      icon: Leaf,
-      title: "Environmental Studies",
-      description: "Researching sustainability and climate solutions",
-      color: "from-green-500 to-green-600",
-    },
-  ];
 
   return (
     <>
@@ -205,55 +154,6 @@ const Home: FC = () => {
         </div>
       </section>
 
-      {/* ================= RESEARCH AREAS SECTION ================= */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
-              Research Areas
-            </h2>
-            <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-              Our interdisciplinary research spans multiple cutting-edge fields,
-              driving innovation and discovery
-            </p>
-          </motion.div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {areas.map((area, index) => (
-              <motion.div
-                key={area.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                whileHover={{ y: -8, scale: 1.02 }}
-                onClick={handleClick}
-                className="group bg-gradient-to-br from-slate-50 to-blue-50 rounded-2xl p-8 cursor-pointer transition-all duration-300 hover:shadow-2xl border border-slate-200"
-              >
-                <div
-                  className={`w-16 h-16 bg-gradient-to-br ${area.color} rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}
-                >
-                  <area.icon className="w-8 h-8 text-white" />
-                </div>
-
-                <h3 className="text-2xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors">
-                  {area.title}
-                </h3>
-
-                <p className="text-slate-600 leading-relaxed">
-                  {area.description}
-                </p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
     </>
   );
 };

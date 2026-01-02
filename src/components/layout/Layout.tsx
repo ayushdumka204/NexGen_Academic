@@ -1,16 +1,13 @@
+import { Outlet } from "react-router-dom";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 
-type Props = {
-  children: React.ReactNode;
-};
-
-const Layout = ({ children }: Props) => {
+const Layout = () => {
   return (
     <>
       <Navbar />
-      <main className="pt-20 min-h-screen">
-        {children}
+      <main className="pt-20">
+        <Outlet />
       </main>
       <Footer />
     </>
