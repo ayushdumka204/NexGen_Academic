@@ -28,7 +28,7 @@ const Footer: FC = () => {
   const handleClick = (): void => {
     toast({
       title:
-        "🚧 This feature isn't implemented yet—but don't worry! You can request it in your next prompt! 🚀",
+        "This feature isn't implemented",
     });
   };
 
@@ -48,7 +48,6 @@ const Footer: FC = () => {
         "Ongoing Projects",
         "Completed Projects",
         "Publications",
-        "Methodology",
       ],
     },
     {
@@ -61,6 +60,16 @@ const Footer: FC = () => {
         "Training",
       ],
     },
+    {
+      title: "Methodologies",
+      links: [
+        "Quantitative",
+        "Qualitative",
+        "Mixed Methods",
+        "Experimental",
+        "Observationals",
+      ],
+    },    
     {
       title: "Resources",
       links: [
@@ -97,7 +106,7 @@ const Footer: FC = () => {
       />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-12">
-        <div className="grid md:grid-cols-2 lg:grid-cols-6 gap-12 mb-16">
+        <div className="grid md:grid-cols-2 lg:grid-cols-7 gap-8 mb-16">
           {/* BRAND + CONTACT */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -108,13 +117,13 @@ const Footer: FC = () => {
           >
             <div className="flex items-center gap-3 mb-6">
               <div className="w-12 h-12 bg-gradient-to-br from-blue-600 to-indigo-700 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-xl">ARI</span>
+                <span className="text-white font-bold text-xl">NAR</span>
               </div>
               <div className="flex flex-col">
                 <span className="text-lg font-bold">
-                  Academic Research
+                  NexGen Research
                 </span>
-                <span className="text-xs text-blue-300">Institute</span>
+                <span className="text-xs text-blue-300">Academic</span>
               </div>
             </div>
 

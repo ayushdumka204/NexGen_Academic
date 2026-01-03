@@ -44,6 +44,15 @@ const menuItems: MenuItem[] = [
       { label: "Qualitative", path: "/methodologies/qualitative" },
     ],
   },
+    {
+    title: "Resouces",
+    path: "/resources",
+    items: [
+      { label: "Data & Tools", path: "/data-tools" },
+      { label: "News & Updates", path: "/news-updates" },
+      { label: "Collaborations", path: "/collaborations" },
+    ],
+  },
   {
     title: "Services",
     path: "/services",
@@ -75,10 +84,10 @@ const Navbar: FC = () => {
           {/* LOGO */}
           <NavLink to="/" className="flex items-center gap-3">
             <div className="w-11 h-11 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-lg flex items-center justify-center text-white font-bold">
-              ARI
+              NAR
             </div>
             <span className="font-bold text-slate-800 text-lg">
-              NexGen Research
+              NexGen Research 
             </span>
           </NavLink>
 
@@ -140,18 +149,24 @@ const Navbar: FC = () => {
           </div>
 
           {/* ================= LOGIN / SIGNUP (DESKTOP) ================= */}
-          <div className="hidden lg:flex items-center gap-3">
+          {/* ================= JOIN US (DESKTOP) ================= */}
+          <div className="hidden lg:flex items-center">
             <NavLink
-              to="/login"
-              className="px-5 py-2 border-2 border-blue-600 text-blue-600 rounded-lg font-medium hover:bg-blue-50 transition-all"
+              to="/join"
+              className="
+                px-6 py-2.5
+                bg-gradient-to-r from-blue-600 to-indigo-600
+                text-white
+                rounded-lg
+                font-semibold
+                tracking-wide
+                hover:shadow-xl
+                hover:scale-105
+                transition-all
+                duration-200
+              "
             >
-              Login
-            </NavLink>
-            <NavLink
-              to="/signup"
-              className="px-5 py-2 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-lg font-medium hover:shadow-lg hover:scale-105 transition-all"
-            >
-              Sign Up
+              JOIN US
             </NavLink>
           </div>
 
@@ -227,21 +242,26 @@ const Navbar: FC = () => {
               ))}
 
               {/* ================= LOGIN / SIGNUP (MOBILE) ================= */}
-              <div className="mt-4 pt-4 border-t space-y-2">
+              {/* ================= JOIN US (MOBILE) ================= */}
+              <div className="mt-4 pt-4 border-t">
                 <NavLink
-                  to="/login"
+                  to="/join"
                   onClick={() => setMobileOpen(false)}
-                  className="block w-full text-center py-2 border-2 border-blue-600 text-blue-600 rounded-lg font-medium"
+                  className="
+                    block w-full
+                    text-center
+                    py-3
+                    bg-gradient-to-r from-blue-600 to-indigo-600
+                    text-white
+                    rounded-lg
+                    font-semibold
+                    tracking-wide
+                    hover:shadow-lg
+                    transition-all
+                    duration-200
+                  "
                 >
-                  Login
-                </NavLink>
-
-                <NavLink
-                  to="/signup"
-                  onClick={() => setMobileOpen(false)}
-                  className="block w-full text-center py-2 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-lg font-medium"
-                >
-                  Sign Up
+                  JOIN US
                 </NavLink>
               </div>
             </div>

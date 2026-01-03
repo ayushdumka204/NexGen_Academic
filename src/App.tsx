@@ -3,6 +3,8 @@ import Layout from "./components/layout/Layout";
 
 import Home from "./pages/Home";
 import About from "./pages/About";
+import Resarch from "./pages/Research";
+import Team from "./pages/Team";
 const App = () => {
   return (
     <BrowserRouter>
@@ -10,6 +12,8 @@ const App = () => {
         <Route element={<Layout />}>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
+          <Route path="/research" element={<Resarch />} />
+          <Route path="/team" element={<Team />} />
         </Route>
       </Routes>
     </BrowserRouter>
