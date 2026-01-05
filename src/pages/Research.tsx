@@ -1,262 +1,375 @@
 import type { FC } from "react";
 import { motion } from "framer-motion";
 import {
-  ArrowRight,
-  FlaskConical,
+  TrendingUp,
   Users,
-  Award,
-  Brain,
-  Dna,
-  Microscope,
-  Atom,
+  BadgeDollarSign,
+  Truck,
+  Globe,
   Cpu,
-  Leaf,
+  Activity,
+  Plane,
+  Lightbulb,
+  CheckCircle2,
+  ArrowRight
 } from "lucide-react";
-import { useToast } from "../components/ui/use-toast";
 
-/* ---------- TYPES ---------- */
-type ResearchArea = {
-  icon: FC<{ className?: string }>;
-  title: string;
-  description: string;
-  color: string;
+// ================= DATA: RESEARCH DOMAINS =================
+const researchDomains = [
+  {
+    id: "marketing",
+    title: "Marketing Management",
+    icon: TrendingUp,
+    color: "text-pink-600",
+    bg: "bg-pink-50",
+    desc: "Exploring the dynamics of consumer psychology, digital transformation, and brand equity in a competitive marketplace.",
+    topics: [
+      "Consumer Behavior & Neuromarketing",
+      "Digital Marketing & Social Media Analytics",
+      "Green Marketing & Sustainability",
+      "Brand Equity & Customer Loyalty",
+      "Service Quality (SERVQUAL Models)",
+    ],
+  },
+  {
+    id: "hr",
+    title: "Human Resource Management",
+    icon: Users,
+    color: "text-blue-600",
+    bg: "bg-blue-50",
+    desc: "Analyzing organizational culture, employee retention strategies, and the impact of remote work on productivity.",
+    topics: [
+      "Employee Engagement & Job Satisfaction",
+      "Performance Appraisal Systems",
+      "Work-Life Balance & Remote Culture",
+      "Diversity, Equity, and Inclusion (DEI)",
+      "Organizational Citizenship Behavior",
+    ],
+  },
+  {
+    id: "finance",
+    title: "Financial Management",
+    icon: BadgeDollarSign,
+    color: "text-emerald-600",
+    bg: "bg-emerald-50",
+    desc: "Investigating market volatility, fintech innovations, investment behaviors, and corporate financial health.",
+    topics: [
+      "Behavioral Finance & Investor Psychology",
+      "Fintech & Cryptocurrency Adoption",
+      "Risk Management & Derivatives",
+      "Corporate Governance & Ethics",
+      "Microfinance & Financial Inclusion",
+    ],
+  },
+  {
+    id: "operations",
+    title: "Operations & Supply Chain",
+    icon: Truck,
+    color: "text-orange-600",
+    bg: "bg-orange-50",
+    desc: "Optimizing logistics, production efficiency, and supply chain resilience in a globalized economy.",
+    topics: [
+      "Supply Chain Resilience & Risk",
+      "Green Supply Chain Management",
+      "Six Sigma & Total Quality Management",
+      "Inventory Optimization Models",
+      "Logistics & Last-Mile Delivery",
+    ],
+  },
+  {
+    id: "ib",
+    title: "International Business",
+    icon: Globe,
+    color: "text-indigo-600",
+    bg: "bg-indigo-50",
+    desc: "Understanding cross-cultural management, foreign trade policies, and global market entry strategies.",
+    topics: [
+      "Cross-Cultural Management Strategies",
+      "Foreign Direct Investment (FDI) Trends",
+      "Global Market Entry Strategies",
+      "Export-Import Dynamics",
+      "Geopolitics & International Trade",
+    ],
+  },
+  {
+    id: "it",
+    title: "IT Management",
+    icon: Cpu,
+    color: "text-cyan-600",
+    bg: "bg-cyan-50",
+    desc: "Bridging the gap between technology and business strategy through AI, cloud computing, and cybersecurity.",
+    topics: [
+      "Artificial Intelligence in Business",
+      "Cloud Computing & SaaS Adoption",
+      "Cybersecurity & Data Privacy",
+      "Blockchain Applications in Management",
+      "Digital Transformation Strategies",
+    ],
+  },
+  {
+    id: "hospital",
+    title: "Hospital Management",
+    icon: Activity,
+    color: "text-red-600",
+    bg: "bg-red-50",
+    desc: "Improving patient care quality, healthcare administration efficiency, and medical infrastructure management.",
+    topics: [
+      "Patient Satisfaction & Experience",
+      "Healthcare Informatics & EHR",
+      "Hospital Waste Management",
+      "Telemedicine & Remote Health",
+      "Quality Accreditation (NABH/JCI)",
+    ],
+  },
+  {
+    id: "tourism",
+    title: "Travel & Tourism",
+    icon: Plane,
+    color: "text-sky-600",
+    bg: "bg-sky-50",
+    desc: "Studying sustainable tourism, destination branding, and the economic impact of the hospitality industry.",
+    topics: [
+      "Sustainable & Ecotourism",
+      "Destination Branding & Marketing",
+      "Impact of Technology on Travel",
+      "Medical Tourism Trends",
+      "Heritage & Cultural Tourism",
+    ],
+  },
+  {
+    id: "entrepreneurship",
+    title: "Entrepreneurship & Family Business",
+    icon: Lightbulb,
+    color: "text-yellow-600",
+    bg: "bg-yellow-50",
+    desc: "Researching startup ecosystems, innovation management, and succession planning in family-owned enterprises.",
+    topics: [
+      "Startup Ecosystems & Incubation",
+      "Social Entrepreneurship",
+      "Succession Planning in Family Business",
+      "Innovation & Design Thinking",
+      "Women Entrepreneurship",
+    ],
+  },
+];
+
+// ================= ANIMATION VARIANTS =================
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.15 },
+  },
 };
 
-/* ---------- COMPONENT ---------- */
-const Home: FC = () => {
-  const { toast } = useToast();
+const itemVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+};
 
-  const handleClick = (): void => {
-    toast({
-      title: "🚧 This feature isn't implemented yet",
-    });
-  };
-
-  const areas: ResearchArea[] = [
-    {
-      icon: Brain,
-      title: "Cognitive Science",
-      description:
-        "Exploring the mechanisms of human cognition and brain function",
-      color: "from-blue-500 to-blue-600",
-    },
-    {
-      icon: Dna,
-      title: "Biotechnology",
-      description: "Advancing genetic research and medical innovations",
-      color: "from-indigo-500 to-indigo-600",
-    },
-    {
-      icon: Microscope,
-      title: "Materials Science",
-      description: "Developing next-generation materials and compounds",
-      color: "from-purple-500 to-purple-600",
-    },
-    {
-      icon: Atom,
-      title: "Quantum Physics",
-      description: "Investigating quantum phenomena and applications",
-      color: "from-blue-600 to-indigo-600",
-    },
-    {
-      icon: Cpu,
-      title: "AI & Machine Learning",
-      description: "Creating intelligent systems and algorithms",
-      color: "from-cyan-500 to-cyan-600",
-    },
-    {
-      icon: Leaf,
-      title: "Environmental Studies",
-      description: "Researching sustainability and climate solutions",
-      color: "from-green-500 to-green-600",
-    },
-  ];
-
+// ================= COMPONENT =================
+const ResearchAreasPage: FC = () => {
   return (
-    <>
+    <div className="bg-slate-50 min-h-screen">
+      
       {/* ================= HERO SECTION ================= */}
-      <section className="relative pt-12 pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-100/50 via-indigo-100/30 to-transparent" />
+      <section className="relative overflow-hidden bg-gradient-to-br from-blue-900 via-indigo-900 to-slate-900 pt-12 pb-12 sm:pt-14 sm:pb-16 px-4">
+        
+        {/* Background Gradients */}
+        <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+          <motion.div
+            animate={{ scale: [1, 1.2, 1], opacity: [0.12, 0.2, 0.12] }}
+            transition={{ duration: 10, repeat: Infinity }}
+            className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-blue-600 rounded-full blur-[150px]"
+          />
+          <motion.div
+            animate={{ scale: [1, 1.1, 1], opacity: [0.1, 0.18, 0.1] }}
+            transition={{ duration: 8, repeat: Infinity, delay: 2 }}
+            className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-indigo-600 rounded-full blur-[150px]"
+          />
+        </div>
 
-        <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 0.1, scale: 1 }}
-          transition={{ duration: 1.5 }}
-          className="absolute top-20 right-10 w-96 h-96 bg-blue-400 rounded-full blur-3xl"
-        />
-        <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 0.1, scale: 1 }}
-          transition={{ duration: 1.5, delay: 0.2 }}
-          className="absolute bottom-20 left-10 w-96 h-96 bg-indigo-400 rounded-full blur-3xl"
-        />
+        <div className="relative z-10 max-w-7xl mx-auto text-center">
+          <motion.span
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="inline-block px-4 py-1.5 mb-4 rounded-full bg-white/10 border border-white/10 text-blue-200 text-xs font-semibold tracking-wider uppercase backdrop-blur-md"
+          >
+            Academic Expertise
+          </motion.span>
+          
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1 }}
+            className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight mb-4"
+          >
+            Our Research <br className="hidden sm:block" />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-400">
+              Domains & Areas
+            </span>
+          </motion.h1>
 
-        <div className="max-w-7xl mx-auto relative z-10">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            {/* LEFT */}
-            <div className="space-y-8">
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8 }}
-                className="inline-flex items-center gap-2 px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium"
-              >
-                <Award className="w-4 h-4" />
-                <span>Leading Research Excellence Since 2005</span>
-              </motion.div>
-
-              <motion.h1
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-                className="max-w-3xl text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.1] text-slate-900"
-              >
-                Advancing Knowledge Through
-                <br />
-                <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
-                  Innovation
-                </span>
-              </motion.h1>
-
-              <motion.p
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.4 }}
-                className="text-xl text-slate-600 leading-relaxed"
-              >
-                A premier academic research institute dedicated to groundbreaking
-                research, data-driven insights, and collaborative partnerships
-                that shape the future of science and technology.
-              </motion.p>
-
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.6 }}
-                className="flex flex-wrap gap-4"
-              >
-                <button
-                  onClick={handleClick}
-                  className="group px-8 py-4 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-xl font-semibold hover:shadow-2xl hover:scale-105 transition-all duration-300 flex items-center gap-2"
-                >
-                  Explore Research
-                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                </button>
-
-                <button
-                  onClick={handleClick}
-                  className="px-8 py-4 bg-white text-blue-600 border-2 border-blue-600 rounded-xl font-semibold hover:bg-blue-50 hover:scale-105 transition-all duration-300"
-                >
-                  View Projects
-                </button>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.8 }}
-                className="flex items-center gap-8 pt-4"
-              >
-                <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
-                    <FlaskConical className="w-6 h-6 text-blue-600" />
-                  </div>
-                  <div>
-                    <p className="text-2xl font-bold text-slate-900">150+</p>
-                    <p className="text-sm text-slate-600">Research Projects</p>
-                  </div>
-                </div>
-
-                <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 bg-indigo-100 rounded-full flex items-center justify-center">
-                    <Users className="w-6 h-6 text-indigo-600" />
-                  </div>
-                  <div>
-                    <p className="text-2xl font-bold text-slate-900">80+</p>
-                    <p className="text-sm text-slate-600">Researchers</p>
-                  </div>
-                </div>
-              </motion.div>
-            </div>
-
-            {/* RIGHT */}
-            <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 1, delay: 0.4 }}
-              className="relative"
-            >
-              <img
-                src="https://images.unsplash.com/photo-1701848055770-effbdb148e15"
-                alt="Research laboratory"
-                className="rounded-2xl shadow-2xl w-full h-auto"
-              />
-              <motion.div
-                animate={{ y: [0, -20, 0], rotate: [0, 5, 0] }}
-                transition={{
-                  duration: 5,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
-                className="absolute -bottom-8 -right-8 w-64 h-64 bg-gradient-to-br from-blue-500 to-indigo-500 rounded-2xl opacity-20 blur-2xl"
-              />
-            </motion.div>
-          </div>
+          <motion.p
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            className="text-base sm:text-lg text-blue-100 max-w-2xl mx-auto leading-relaxed"
+          >
+            Specialized academic support tailored to your discipline and university standards.
+          </motion.p>
         </div>
       </section>
 
-      {/* ================= RESEARCH AREAS SECTION ================= */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
-        <div className="max-w-7xl mx-auto">
+      {/* ================= INTRO TEXT SECTION (HIDDEN ON MOBILE) ================= */}
+      {/* Using 'hidden sm:block' to completely remove this section on mobile */}
+      <section className="hidden sm:block bg-white py-14 px-4 border-b border-slate-100">
+        <div className="max-w-4xl mx-auto text-center">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-16"
+            transition={{ duration: 0.6 }}
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
-              Research Areas
+            <h2 className="text-3xl font-bold text-slate-900 mb-6">
+              Comprehensive Support Across Key Disciplines
             </h2>
-            <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-              Our interdisciplinary research spans multiple cutting-edge fields,
-              driving innovation and discovery
+            <p className="text-lg text-slate-600 leading-relaxed">
+              We understand that every research project is unique, requiring deep subject matter expertise and precise methodological execution. 
+              Whether you are conducting quantitative analysis in Finance or qualitative case studies in Human Resources, our specialized teams are equipped to guide you. 
+              Explore our core research domains below to find the perfect alignment for your thesis or dissertation topic.
             </p>
           </motion.div>
+        </div>
+      </section>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {areas.map((area, index) => (
+      {/* ================= DOMAINS GRID ================= */}
+      <section className="relative py-12 sm:py-16 px-4 sm:px-6 lg:px-8 bg-slate-50">
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+            className="grid gap-8 md:grid-cols-2 lg:grid-cols-3"
+          >
+            {researchDomains.map((item) => (
               <motion.div
-                key={area.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                whileHover={{ y: -8, scale: 1.02 }}
-                onClick={handleClick}
-                className="group bg-gradient-to-br from-slate-50 to-blue-50 rounded-2xl p-8 cursor-pointer transition-all duration-300 hover:shadow-2xl border border-slate-200"
+                key={item.id}
+                variants={itemVariants}
+                whileHover={{ y: -10 }}
+                className="group bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-lg hover:shadow-2xl hover:border-blue-500/30 transition-all duration-300 flex flex-col"
               >
-                <div
-                  className={`w-16 h-16 bg-gradient-to-br ${area.color} rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}
-                >
-                  <area.icon className="w-8 h-8 text-white" />
+                {/* Header of Card */}
+                <div className={`p-8 ${item.bg} border-b border-slate-100`}>
+                  <div className="flex items-center justify-between mb-4">
+                    <div className={`p-3 bg-white rounded-xl shadow-sm ${item.color}`}>
+                      <item.icon className="w-8 h-8" />
+                    </div>
+                    <span className="text-4xl font-bold text-slate-200 group-hover:text-slate-300 transition-colors">
+                      0{researchDomains.indexOf(item) + 1}
+                    </span>
+                  </div>
+                  <h3 className="text-2xl font-bold text-slate-900 group-hover:text-blue-600 transition-colors">
+                    {item.title}
+                  </h3>
                 </div>
 
-                <h3 className="text-2xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors">
-                  {area.title}
-                </h3>
+                {/* Body of Card */}
+                <div className="p-8 flex-1 flex flex-col justify-between">
+                  <div>
+                    <p className="text-slate-600 leading-relaxed mb-6">
+                      {item.desc}
+                    </p>
+                    
+                    {/* Detailed Topics List */}
+                    <div className="space-y-3">
+                      <h4 className="text-sm font-bold text-slate-900 uppercase tracking-wide">
+                        Key Research Topics:
+                      </h4>
+                      <ul className="space-y-2">
+                        {item.topics.map((topic, i) => (
+                          <li key={i} className="flex items-start gap-2 text-sm text-slate-600">
+                            <CheckCircle2 className="w-4 h-4 text-green-500 mt-0.5 shrink-0" />
+                            <span>{topic}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
 
-                <p className="text-slate-600 leading-relaxed">
-                  {area.description}
-                </p>
+                  <div className="pt-8 mt-6 border-t border-slate-100">
+                    <button className="flex items-center gap-2 text-sm font-bold text-blue-600 hover:gap-4 transition-all group-hover:text-blue-700">
+                      Explore Projects <ArrowRight className="w-4 h-4" />
+                    </button>
+                  </div>
+                </div>
               </motion.div>
             ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ================= WHY CHOOSE SECTION ================= */}
+      <section className="py-20 bg-white border-t border-slate-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="grid md:grid-cols-2 gap-16 items-center">
+            
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+            >
+              <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 mb-6">
+                Why Conduct Research in These Areas With Us?
+              </h2>
+              <p className="text-lg text-slate-600 mb-6 leading-relaxed">
+                Academic research requires precision, updated literature, and robust statistical analysis. 
+                Our team of subject matter experts ensures your research stands out.
+              </p>
+              
+              <div className="space-y-4">
+                {[
+                  "Access to Paid Journals (Scopus, Web of Science)",
+                  "Expert Statistical Analysis (SPSS, AMOS, R, Python)",
+                  "Plagiarism-Free & AI-Free Writing Guarantees",
+                  "Dedicated Supervisor for Each Domain"
+                ].map((point, i) => (
+                  <div key={i} className="flex items-center gap-3">
+                    <div className="w-2 h-2 rounded-full bg-blue-600" />
+                    <span className="text-slate-700 font-medium">{point}</span>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="relative"
+            >
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-100 to-indigo-100 rounded-3xl transform rotate-3" />
+              <div className="relative bg-slate-900 text-white p-10 rounded-3xl shadow-2xl">
+                <h3 className="text-2xl font-bold mb-4">Need a Custom Topic?</h3>
+                <p className="text-slate-300 mb-8">
+                  If your research area isn't listed here, don't worry. We handle niche and 
+                  interdisciplinary topics tailored to your university requirements.
+                </p>
+                <button className="w-full py-4 bg-blue-600 hover:bg-blue-500 rounded-xl font-bold transition-all shadow-lg shadow-blue-900/50">
+                  Consult With an Expert
+                </button>
+              </div>
+            </motion.div>
+
           </div>
         </div>
       </section>
-    </>
+
+    </div>
   );
 };
 
-export default Home;
-// end
+export default ResearchAreasPage;

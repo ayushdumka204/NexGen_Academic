@@ -128,8 +128,7 @@ const Footer: FC = () => {
             </div>
 
             <p className="text-blue-200 mb-6 leading-relaxed">
-              Advancing knowledge through innovative research and collaborative
-              partnerships in science and technology.
+              Serving since last 18 years NexGen Market Research Services Pvt Ltd is a multidisciplinary market research agency, offers high quality marketing research, analysis and consulting services.
             </p>
 
             <div className="space-y-3">
@@ -138,7 +137,7 @@ const Footer: FC = () => {
                 className="flex items-center gap-3 text-blue-200 hover:text-white transition-colors cursor-pointer"
               >
                 <Mail className="w-5 h-5" />
-                <span>contact@research-institute.edu</span>
+                <span>mail@nexgenint.com</span>
               </div>
 
               <div
@@ -146,7 +145,7 @@ const Footer: FC = () => {
                 className="flex items-center gap-3 text-blue-200 hover:text-white transition-colors cursor-pointer"
               >
                 <Phone className="w-5 h-5" />
-                <span>+1 (555) 123-4567</span>
+                <span>+91 98731 77449</span>
               </div>
 
               <div
@@ -154,7 +153,7 @@ const Footer: FC = () => {
                 className="flex items-center gap-3 text-blue-200 hover:text-white transition-colors cursor-pointer"
               >
                 <MapPin className="w-5 h-5" />
-                <span>123 Research Ave, Science City, ST 12345</span>
+                <span>Noida-201309, UP, India</span>
               </div>
             </div>
           </motion.div>

@@ -19,7 +19,8 @@ const HeroWithPreview: FC = () => {
       />
 
       {/* ================= HERO ================= */}
-      <div className="relative z-10 min-h-[85vh] flex items-center justify-center px-4 text-center">
+      {/* 👇 CHANGE 1: Added 'pt-32 sm:pt-0' for mobile navbar spacing */}
+      <div className="relative z-10 min-h-[85vh] flex items-center justify-center px-4 text-center pt-4 sm:pt-0">
         <div className="max-w-4xl mx-auto">
           <motion.span
             initial={{ opacity: 0, y: 20 }}
@@ -72,7 +73,8 @@ const HeroWithPreview: FC = () => {
       </div>
 
       {/* ================= LAPTOP SECTION ================= */}
-      <div className="relative z-10 pb-28 px-4">
+      {/* 👇 CHANGE 2: Added 'mt-20 sm:mt-0' for spacing between buttons and laptop on mobile */}
+      <div className="relative z-10 pb-28 px-4 mt-20 sm:mt-0">
 
         {/* LINE SKELETON TEXT */}
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
@@ -202,9 +204,154 @@ const HeroWithPreview: FC = () => {
           </div>
         </div>
       </div>
+
+      {/* ================= RESEARCH DOMAINS ================= */}
+      <div className="relative bg-slate-50 py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-20"
+          >
+            <span className="uppercase tracking-widest text-sm font-semibold text-indigo-600">
+              Research Domains
+            </span>
+            <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900">
+              Areas We Specialize In
+            </h2>
+            <p className="mt-6 max-w-3xl mx-auto text-lg text-slate-600">
+              Our research spans across multiple disciplines, enabling
+              interdisciplinary innovation and real-world impact.
+            </p>
+          </motion.div>
+
+          <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
+            {[
+              "Artificial Intelligence",
+              "Data Science & Analytics",
+              "Healthcare Research",
+              "Social & Behavioral Studies",
+              "Sustainable Development",
+              "Educational Technology",
+              "Business & Economics",
+              "Cybersecurity & Systems",
+            ].map((domain, i) => (
+              <motion.div
+                key={domain}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: i * 0.08 }}
+                className="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300"
+              >
+                <h3 className="text-lg font-bold text-slate-900">
+                  {domain}
+                </h3>
+                <p className="mt-3 text-slate-600 text-sm leading-relaxed">
+                  In-depth academic research backed by structured methodology,
+                  peer review, and ethical compliance.
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* ================= PROCESS SECTION ================= */}
+      <div className="relative bg-gradient-to-br from-slate-900 via-indigo-900 to-slate-900 py-24 px-4 sm:px-6 lg:px-8 text-white overflow-hidden">
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-24"
+          >
+            <span className="uppercase tracking-widest text-sm text-indigo-300">
+              Our Methodology
+            </span>
+            <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-extrabold">
+              Structured Research Process
+            </h2>
+          </motion.div>
+
+          <div className="grid gap-12 md:grid-cols-4">
+            {[
+              { step: "01", title: "Problem Identification" },
+              { step: "02", title: "Literature Review" },
+              { step: "03", title: "Data Collection" },
+              { step: "04", title: "Analysis & Publication" },
+            ].map((item, i) => (
+              <motion.div
+                key={item.step}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.7, delay: i * 0.15 }}
+                className="relative bg-white/10 backdrop-blur-lg rounded-2xl p-8 border border-white/10 hover:bg-white/20 transition-all duration-300"
+              >
+                <span className="text-5xl font-extrabold text-indigo-300">
+                  {item.step}
+                </span>
+                <h3 className="mt-4 text-xl font-bold">
+                  {item.title}
+                </h3>
+                <p className="mt-3 text-sm text-indigo-100 leading-relaxed">
+                  Each phase is carefully monitored to ensure accuracy,
+                  reproducibility, and global academic standards.
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* ================= CTA SECTION ================= */}
+      <div className="relative bg-white py-28 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-5xl mx-auto text-center">
+          <motion.h2
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900"
+          >
+            Collaborate With NexGen Academic Research
+          </motion.h2>
+
+          <motion.p
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="mt-6 text-lg text-slate-600 leading-relaxed"
+          >
+            Whether you are a researcher, institution, or organization,
+            we invite you to collaborate and contribute to impactful research
+            initiatives.
+          </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="mt-10 flex justify-center gap-6"
+          >
+            <button className="px-10 py-4 bg-indigo-600 text-white rounded-xl font-semibold hover:bg-indigo-700 hover:scale-105 transition-all duration-300 shadow-lg">
+              Get In Touch
+            </button>
+            <button className="px-10 py-4 border-2 border-slate-300 rounded-xl font-semibold text-slate-700 hover:bg-slate-100 transition-all duration-300">
+              Download Brochure
+            </button>
+          </motion.div>
+        </div>
+      </div>
+
     </section>
   );
 };
 
 export default HeroWithPreview;
-// end

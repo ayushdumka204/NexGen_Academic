@@ -53,7 +53,7 @@ const Team: FC = () => {
       </section>
 
       {/* ================= LEADERSHIP ================= */}
-      <section className="py-24 px-4 sm:px-6 lg:px-8 bg-white">
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -89,6 +89,21 @@ const Team: FC = () => {
                 desc: "Lead the Team from the top of the department.",
               },
               {
+                name: "Mrs. Nisha Joshi",
+                role: "Founder & Chief Research Officer",
+                desc: "20+ years in market research, strategy consulting, and analytics leadership.",
+              },
+              {
+                name: "Mr. Devendra Bhatt",
+                role: "COO",
+                desc: "Specialist in consumer behavior, brand strategy, and qualitative research.",
+              },
+              {
+                name: "Mr. Tarun Mahtoliya",
+                role: "Senior Manager",
+                desc: "Lead the Team from the top of the department.",
+              },
+                            {
                 name: "Mr. Mahesh Mahtoliya",
                 role: "Founder & Chief Research Officer",
                 desc: "20+ years in market research, strategy consulting, and analytics leadership.",

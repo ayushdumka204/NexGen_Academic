@@ -5,6 +5,10 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Resarch from "./pages/Research";
 import Team from "./pages/Team";
+
+import InstitutionalPartner from "./pages/InstitutionalPartener";
+import Researcharea from "./components/Research/Researcharea";
+
 const App = () => {
   return (
     <BrowserRouter>
@@ -14,6 +18,9 @@ const App = () => {
           <Route path="/about" element={<About />} />
           <Route path="/research" element={<Resarch />} />
           <Route path="/team" element={<Team />} />
+          <Route path="/researcharea" element={<Researcharea />} />
+          <Route path="/institutional-partner"element={<InstitutionalPartner />}
+          />
         </Route>
       </Routes>
     </BrowserRouter>
