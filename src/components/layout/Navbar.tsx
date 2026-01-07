@@ -323,8 +323,8 @@ const Navbar: FC = () => {
                   {/* ================= BOTTOM BAR - UPDATED COLOR ================= */}
                   <div className="bg-[#80cb29] text-white mt-2">
                     <div className="max-w-7xl mx-auto px-6 py-3 flex flex-wrap justify-between gap-4 text-sm font-medium">
-                      <span>© Since 2008</span>
-                      <span>500+ Consultants</span>
+                      <span>© Since 2007</span>
+                      <span>1000+ Clients Served</span>
                       <span>Secured & Confidential</span>
                       <span>Guaranteed Service</span>
                     </div>
