@@ -203,7 +203,7 @@ const Navbar: FC = () => {
           {/* LOGO BLOCK - FLEXIBLE BUT CONTROLLED */}
           <NavLink to="/" className="flex items-center gap-3 min-w-0">
             <img
-              src="/public/logo.png"
+              src="/img/logo.png"
               alt="NexGen Research Logo"
               className="h-10 w-auto max-w-[150px] sm:max-w-none sm:h-12 rounded-lg object-contain"
             />
