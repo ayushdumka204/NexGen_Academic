@@ -9,10 +9,15 @@ type SubItem = {
   path: string;
 };
 
+type MenuSection = {
+  heading: string;
+  items: SubItem[];
+};
+
 type MenuItem = {
   title: string;
   path: string;
-  items?: SubItem[];
+  sections?: MenuSection[];
 };
 
 /* ================= MENU DATA ================= */
@@ -21,166 +26,156 @@ const menuItems: MenuItem[] = [
   {
     title: "About",
     path: "/about",
-    items: [
-      { label: "About Us", path: "/about" },
-      { label: "Team", path: "/team" },
-      { label: "Institution", path: "/institution" },
-    ],
-  },
-  {
-    title: "Research",
-    path: "/research",
-    items: [
-      { label: "Research Areas", path: "/researcharea" },
-      { label: "Ongoing Projects", path: "/projects/ongoing" },
-      { label: "Completed Projects", path: "/projects/completed" },
-    ],
-  },
-  {
-    title: "Methodologies",
-    path: "/methodologies",
-    items: [
-      { label: "Quantitative", path: "/methodologies/quantitative" },
-      { label: "Qualitative", path: "/methodologies/qualitative" },
+    sections: [
+      {
+        heading: "Who We Are",
+        items: [
+          { label: "Our Mission & Vision", path: "/about/mission" },
+          { label: "Expert Team & Credentials", path: "/about/team" },
+          { label: "Why Choose NAR", path: "/about/why-us" },
+        ],
+      },
+      {
+        heading: "Standards",
+        items: [
+          { label: "Quality Assurance & Ethics", path: "/about/quality" },
+          { label: "Client Testimonials", path: "/about/testimonials" },
+        ],
+      },
     ],
   },
   {
     title: "Services",
     path: "/services",
-    items: [
-      { label: "Data Collection", path: "/services/data-collection" },
-      { label: "Data Analysis", path: "/services/data-analysis" },
-      { label: "Evaluation & Review", path: "/services/evaluation" },
+    sections: [
+      {
+        heading: "Research Design",
+        items: [
+          { label: "Research Methodology", path: "/services/design/methodology" },
+          { label: "Sampling Strategy", path: "/services/design/sampling" },
+          { label: "Instrument Development", path: "/services/design/instrument" },
+          { label: "Research Ethics Support", path: "/services/design/ethics" },
+        ],
+      },
+      {
+        heading: "Data Collection",
+        items: [
+          { label: "Survey Research Studies", path: "/services/collection/surveys" },
+          { label: "Experimental Research (RCT)", path: "/services/collection/experimental" },
+          { label: "Organisational Studies", path: "/services/collection/organisational" },
+          { label: "Qualitative Interviews (IDI/FGD)", path: "/services/collection/qualitative" },
+          { label: "Secondary Data Services", path: "/services/collection/secondary" },
+        ],
+      },
+      {
+        heading: "Data Analysis",
+        items: [
+          { label: "Quantitative (SPSS/R/Python)", path: "/services/analysis/quantitative" },
+          { label: "SEM (AMOS/SmartPLS)", path: "/services/analysis/sem" },
+          { label: "Qualitative (NVivo/ATLAS.ti)", path: "/services/analysis/qualitative" },
+          { label: "Predictive Modeling", path: "/services/analysis/predictive" },
+        ],
+      },
+      {
+        heading: "Academic Writing",
+        items: [
+          { label: "Research Proposal/Synopsis", path: "/services/writing/proposal" },
+          { label: "Thesis/Dissertation Support", path: "/services/writing/thesis" },
+          { label: "Journal Article Preparation", path: "/services/writing/journal" },
+          { label: "Editing & Formatting", path: "/services/writing/editing" },
+        ],
+      },
+    ],
+  },
+  {
+    title: "Research Domains",
+    path: "/domains",
+    sections: [
+      {
+        heading: "Business & Mgmt",
+        items: [
+          { label: "Marketing & Consumer", path: "/domains/marketing" },
+          { label: "Human Resource Mgmt", path: "/domains/hrm" },
+          { label: "Economics & Finance", path: "/domains/economics" },
+        ],
+      },
+      {
+        heading: "Social Sciences",
+        items: [
+          { label: "Psychology & Sociology", path: "/domains/psychology" },
+          { label: "Education & Pedagogy", path: "/domains/education" },
+          { label: "Law & Public Policy", path: "/domains/law" },
+        ],
+      },
+      {
+        heading: "Sciences & Tech",
+        items: [
+          { label: "Health & Public Health", path: "/domains/health" },
+          { label: "Engineering & Technology", path: "/domains/engineering" },
+          { label: "Agriculture & Enviro", path: "/domains/agriculture" },
+        ],
+      },
     ],
   },
   {
     title: "Resources",
     path: "/resources",
-    items: [
-      { label: "Data & Tools", path: "/data-tools" },
-      { label: "News & Updates", path: "/news-updates" },
-      { label: "Collaborations", path: "/collaborations" },
+    sections: [
+      {
+        heading: "Tools & Guides",
+        items: [
+          { label: "Methodology Guides", path: "/resources/guides" },
+          { label: "Sample Questionnaires", path: "/resources/scales" },
+          { label: "Statistical Calculators", path: "/resources/calculators" },
+        ],
+      },
+      {
+        heading: "Learning",
+        items: [
+          { label: "Software Tutorials", path: "/resources/tutorials" },
+          { label: "Publication Tips", path: "/resources/publication-tips" },
+          { label: "Research Blog", path: "/resources/blog" },
+          { label: "FAQs", path: "/resources/faqs" },
+        ],
+      },
+    ],
+  },
+  {
+    title: "Pricing",
+    path: "/pricing",
+    sections: [
+      {
+        heading: "Packages",
+        items: [
+          { label: "Data Collection Only", path: "/pricing/collection" },
+          { label: "Data Analysis Only", path: "/pricing/analysis" },
+          { label: "End-to-End Support", path: "/pricing/end-to-end" },
+        ],
+      },
+      {
+        heading: "Offers",
+        items: [
+          { label: "PhD Scholar Discounts", path: "/pricing/discounts" },
+          { label: "Custom Quote Request", path: "/pricing/quote" },
+        ],
+      },
     ],
   },
   { title: "Contact", path: "/contact" },
 ];
-
-/* ================= MEGA MENU CONTENT ================= */
-const megaMenuContent: Record<
-  string,
-  {
-    leftTitle: string;
-    leftDesc: string;
-    middleTitle: string;
-    middleLinks: SubItem[];
-    rightTitle: string;
-    rightPoints: string[];
-  }
-> = {
-  About: {
-    leftTitle: "What We Do",
-    leftDesc:
-      "We provide end-to-end academic research consultancy for PhD scholars, postgraduate students, and institutions, ensuring ethical and confidential research support.",
-    middleTitle: "About NexGen",
-    middleLinks: [
-      { label: "About Organization", path: "/about" },
-      { label: "Leadership & Team", path: "/team" },
-      { label: "Institutional Partners", path: "/institutional-partner" },
-    ],
-    rightTitle: "About Highlights",
-    rightPoints: [
-      "Ethical academic practices",
-      "Confidential research handling",
-      "Affordable & transparent services",
-      "Guaranteed Service",
-    ],
-  },
-  Research: {
-    leftTitle: "Research Support",
-    leftDesc:
-      "Our research division assists PhD scholars, postgraduate students, and institutions in conducting high-quality academic research aligned with IIMs, universities, and global research standards.",
-    middleTitle: "Research Sections",
-    middleLinks: [
-      { label: "Research Areas", path: "/researcharea" },
-      { label: "Ongoing Projects", path: "/projects/ongoing" },
-      { label: "Completed Projects", path: "/projects/completed" },
-    ],
-    rightTitle: "Research Strengths",
-    rightPoints: [
-      "IIM & university-aligned research frameworks",
-      "Publication-focused research design",
-      "Interdisciplinary research approach",
-      "Supervisor & reviewer compliance",
-    ],
-  },
-  Methodologies: {
-    leftTitle: "Research Methodologies",
-    leftDesc:
-      "We guide researchers in selecting and applying appropriate methodologies to ensure validity, reliability, and reproducibility of academic research.",
-    middleTitle: "Methodology Types",
-    middleLinks: [
-      { label: "Quantitative Research", path: "/methodologies/quantitative" },
-      { label: "Qualitative Research", path: "/methodologies/qualitative" },
-      { label: "Mixed Method Approach", path: "/methodologies/mixed" },
-    ],
-    rightTitle: "Methodology Benefits",
-    rightPoints: [
-      "Statistically sound research models",
-      "Globally accepted academic frameworks",
-      "Tool-based data analysis support",
-      "Ethically approved research designs",
-    ],
-  },
-  Resources: {
-    leftTitle: "Academic Resources",
-    leftDesc:
-      "Access curated academic resources, tools, datasets, and research updates designed to support scholars throughout their research journey.",
-    middleTitle: "Resource Center",
-    middleLinks: [
-      { label: "Data & Tools", path: "/data-tools" },
-      { label: "News & Updates", path: "/news-updates" },
-      { label: "Collaborations", path: "/collaborations" },
-    ],
-    rightTitle: "Resource Benefits",
-    rightPoints: [
-      "Trusted academic databases",
-      "Publication-ready templates",
-      "Latest research trends & updates",
-      "Global academic collaboration access",
-    ],
-  },
-  Services: {
-    leftTitle: "Academic Services",
-    leftDesc:
-      "Our services cover the complete research lifecycle from topic selection to thesis submission and publication support.",
-    middleTitle: "Our Services",
-    middleLinks: [
-      { label: "Data Collection", path: "/services/data-collection" },
-      { label: "Data Analysis", path: "/services/data-analysis" },
-      { label: "Evaluation & Review", path: "/services/evaluation" },
-      { label: "Research Planning & Writing Services", path: "/services/evaluation" },
-    ],
-    rightTitle: "Service Assurance",
-    rightPoints: [
-      "Plagiarism-free work",
-      "University guideline compliance",
-      "On-time delivery",
-    ],
-  },
-};
 
 /* ================= COMPONENT ================= */
 const Navbar: FC = () => {
   const location = useLocation();
   const [desktopDropdown, setDesktopDropdown] = useState<string | null>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [mobileDropdown, setMobileDropdown] = useState<string | null>(null);
+  const [mobileExpandedMenu, setMobileExpandedMenu] = useState<string | null>(null);
 
   const isMenuActive = (menu: MenuItem): boolean => {
     if (location.pathname === menu.path) return true;
-    if (menu.items) {
-      return menu.items.some((item) =>
-        location.pathname.startsWith(item.path)
+    if (menu.sections) {
+      return menu.sections.some((section) =>
+        section.items.some((item) => location.pathname.startsWith(item.path))
       );
     }
     return false;
@@ -191,7 +186,7 @@ const Navbar: FC = () => {
       initial={{ y: -80 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.4 }}
-      className="fixed top-0 left-0 right-0 z-50 bg-white shadow-md"
+      className="fixed top-0 left-0 right-0 z-50 bg-white shadow-md font-sans"
     >
       {/* ================= TOP BAR ================= */}
       <div
@@ -200,33 +195,38 @@ const Navbar: FC = () => {
       >
         <div className="flex items-center justify-between h-20 w-full">
           
-          {/* LOGO BLOCK - FLEXIBLE BUT CONTROLLED */}
-          <NavLink to="/" className="flex items-center gap-3 min-w-0">
+          {/* LOGO */}
+          <NavLink to="/" className="flex items-center gap-3 min-w-0 z-50">
             <img
               src="/img/logo.png"
-              alt="NexGen Research Logo"
-              className="h-10 w-auto max-w-[150px] sm:max-w-none sm:h-12 rounded-lg object-contain"
+              alt="NAR Logo"
+              className="h-10 w-auto max-w-[150px] sm:max-w-none sm:h-12 object-contain"
             />
           </NavLink>
 
           {/* ================= DESKTOP MENU ================= */}
-          <div className="hidden lg:flex items-center gap-2">
+          <div className="hidden lg:flex items-center gap-1">
             {menuItems.map((menu) => (
               <div
                 key={menu.title}
-                className="relative"
-                onMouseEnter={() => setDesktopDropdown(menu.title)}
+                className="relative group"
+                onMouseEnter={() => setDesktopDropdown(menu.sections ? menu.title : null)}
               >
                 <NavLink
                   to={menu.path}
-                  className="relative px-4 py-2 font-medium flex items-center gap-1 text-slate-800 hover:text-blue-600"
+                  className={`
+                    relative px-3 py-2 text-[15px] font-medium flex items-center gap-1 transition-colors
+                    ${isMenuActive(menu) ? "text-slate-900" : "text-slate-800 hover:text-[#80cb29]"}
+                  `}
                 >
                   {menu.title}
-                  {menu.items && <ChevronDown className="w-4 h-4" />}
+                  {menu.sections && <ChevronDown className="w-4 h-4 opacity-70 group-hover:rotate-180 transition-transform duration-200" />}
+                  
+                  {/* Active Indicator - UPDATED COLOR */}
                   {isMenuActive(menu) && (
                     <motion.span
                       layoutId="nav-underline"
-                      className="absolute left-0 -bottom-1 h-[3px] w-full bg-green-500 rounded-full"
+                      className="absolute left-0 -bottom-1 h-[3px] w-full bg-[#80cb29] rounded-full"
                     />
                   )}
                 </NavLink>
@@ -234,31 +234,30 @@ const Navbar: FC = () => {
             ))}
           </div>
 
-          {/* ================= JOIN US BUTTON (Desktop) ================= */}
-          <div className="hidden lg:flex">
+          {/* ================= RIGHT ACTIONS ================= */}
+          <div className="hidden lg:flex items-center gap-4">
+             {/* SCHOLAR LOGIN - Blue Outline Button (As requested previously) */}
+             <NavLink
+               to="/login"
+               className="px-4 py-2 text-sm font-semibold text-blue-600 border border-blue-600 rounded-lg hover:bg-blue-50 transition-colors"
+             >
+               Scholar Login
+             </NavLink>
+            
+            {/* GET STARTED - Blue Solid Button (As requested previously) */}
             <NavLink
-              to="/join"
-              className="px-6 py-2.5 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-lg font-semibold hover:shadow-xl hover:scale-105 transition-all"
+              to="/get-started"
+              className="px-5 py-2.5 bg-blue-600 text-white text-sm rounded-lg font-semibold hover:bg-blue-700 transition-colors shadow-lg"
             >
-              JOIN US
+              GET STARTED
             </NavLink>
           </div>
 
-          {/* ================= MOBILE CONTROLS (Call + Menu) ================= */}
-          {/* shrink-0 ensures this never collapses */}
+          {/* ================= MOBILE TOGGLE ================= */}
           <div className="flex items-center gap-3 lg:hidden shrink-0 ml-4">
             <a 
-              href="tel:+1234567890" 
-              className="
-                flex items-center justify-center
-                w-10 h-10
-                rounded-full
-                border border-slate-900 
-                text-slate-900 
-                hover:bg-slate-100 
-                transition-colors
-              "
-              aria-label="Call Now"
+              href="tel:+911234567890" 
+              className="flex items-center justify-center w-10 h-10 rounded-full bg-slate-100 text-slate-900 hover:bg-[#80cb29]/10 hover:text-[#80cb29] transition-colors"
             >
               <Phone className="w-5 h-5" />
             </a>
@@ -273,144 +272,166 @@ const Navbar: FC = () => {
         </div>
       </div>
 
-      {/* ================= FULL WIDTH SUB NAV (Desktop) ================= */}
+      {/* ================= DESKTOP MEGA MENU ================= */}
       <AnimatePresence>
-        {desktopDropdown && megaMenuContent[desktopDropdown] && (
+        {desktopDropdown && (
           <motion.div
-            initial={{ opacity: 0, y: 15 }}
+            initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: 15 }}
-            transition={{ duration: 0.25 }}
-            className="fixed top-20 left-4 right-4 bg-white border shadow-2xl rounded-2xl"
+            exit={{ opacity: 0, y: 10 }}
+            transition={{ duration: 0.2 }}
+            className="fixed top-20 left-10 right-10 bg-white border-t border-slate-100 shadow-2xl z-40 rounded-b-xl overflow-hidden"
             onMouseEnter={() => setDesktopDropdown(desktopDropdown)}
             onMouseLeave={() => setDesktopDropdown(null)}
           >
-            {/* INVISIBLE HOVER BRIDGE */}
-            <div className="absolute -top-6 left-0 right-0 h-6" />
+            {menuItems.map((menu) => {
+              if (menu.title !== desktopDropdown || !menu.sections) return null;
 
-            <div className="max-w-7xl mx-auto px-6 py-10 grid grid-cols-3 gap-10">
-              {/* LEFT */}
-              <div>
-                <h4 className="font-bold text-slate-900 mb-2">
-                  {megaMenuContent[desktopDropdown].leftTitle}
-                </h4>
-                <p className="text-sm text-slate-600 leading-relaxed">
-                  {megaMenuContent[desktopDropdown].leftDesc}
-                </p>
-              </div>
+              return (
+                <div key={menu.title}>
+                  {/* Menu Grid Content */}
+                  <div className="max-w-7xl mx-auto px-6 pt-8 pb-6">
+                    <div className={`grid gap-8 ${
+                      menu.sections.length > 3 ? 'grid-cols-4' : 
+                      menu.sections.length === 3 ? 'grid-cols-3' : 'grid-cols-2'
+                    }`}>
+                      {menu.sections.map((section) => (
+                        <div key={section.heading}>
+                          {/* Heading Border - UPDATED COLOR */}
+                          <h3 className="font-bold text-slate-900 text-sm tracking-wide uppercase mb-4 border-l-4 border-[#80cb29] pl-3">
+                            {section.heading}
+                          </h3>
+                          <ul className="space-y-2.5">
+                            {section.items.map((item) => (
+                              <li key={item.label}>
+                                <NavLink
+                                  to={item.path}
+                                  onClick={() => setDesktopDropdown(null)}
+                                  // Link Hover - UPDATED COLOR
+                                  className="text-[14px] text-slate-600 hover:text-[#80cb29] hover:translate-x-1 transition-all inline-block"
+                                >
+                                  {item.label}
+                                </NavLink>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
 
-              {/* MIDDLE – CLICKABLE */}
-              <div>
-                <h4 className="font-bold text-slate-900 mb-2">
-                  {megaMenuContent[desktopDropdown].middleTitle}
-                </h4>
-                <ul className="space-y-2">
-                  {megaMenuContent[desktopDropdown].middleLinks.map((l) => (
-                    <li key={l.label}>
-                      <NavLink
-                        to={l.path}
-                        className="text-sm text-slate-700 hover:text-orange-600 transition"
-                      >
-                        ▸ {l.label}
-                      </NavLink>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              {/* RIGHT */}
-              <div>
-                <h4 className="font-bold text-slate-900 mb-2">
-                  {megaMenuContent[desktopDropdown].rightTitle}
-                </h4>
-                <ul className="space-y-1 text-sm text-slate-600">
-                  {megaMenuContent[desktopDropdown].rightPoints.map((p) => (
-                    <li key={p}>▸ {p}</li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-
-            <div className="bg-orange-500 text-white rounded-b-2xl">
-              <div className="max-w-7xl mx-auto px-6 py-3 flex flex-wrap justify-between gap-4 text-sm font-medium">
-                <span>© Since 2008</span>
-                <span>500+ Consultants</span>
-                <span>Secured & Confidential</span>
-                <span>Guaranteed Service</span>
-              </div>
-            </div>
+                  {/* ================= BOTTOM BAR - UPDATED COLOR ================= */}
+                  <div className="bg-[#80cb29] text-white mt-2">
+                    <div className="max-w-7xl mx-auto px-6 py-3 flex flex-wrap justify-between gap-4 text-sm font-medium">
+                      <span>© Since 2008</span>
+                      <span>500+ Consultants</span>
+                      <span>Secured & Confidential</span>
+                      <span>Guaranteed Service</span>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
           </motion.div>
         )}
       </AnimatePresence>
 
-      {/* ================= MOBILE MENU (FIXED) ================= */}
+      {/* ================= MOBILE MENU ================= */}
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            className="lg:hidden bg-white border-t"
+            initial={{ x: "100%" }}
+            animate={{ x: 0 }}
+            exit={{ x: "100%" }}
+            transition={{ type: "tween", duration: 0.3 }}
+            className="fixed inset-0 bg-white z-50 lg:hidden overflow-y-auto"
           >
-            <div className="px-4 py-4 space-y-2">
-              {menuItems.map((menu) => (
-                <div key={menu.title}>
-                  {/* LOGIC FIX: Check if items exist BEFORE rendering the wrapper */}
-                  
-                  {menu.items ? (
-                    // CASE 1: Has Sub-items -> Render as BUTTON
-                    <button
-                      onClick={() =>
-                        setMobileDropdown(
-                          mobileDropdown === menu.title ? null : menu.title
-                        )
-                      }
-                      className="w-full flex items-center justify-between py-2 text-slate-800 font-medium"
-                    >
-                      <span>{menu.title}</span>
-                      <ChevronDown
-                        className={`w-4 h-4 transition-transform ${
-                          mobileDropdown === menu.title ? "rotate-180" : ""
-                        }`}
-                      />
-                    </button>
-                  ) : (
-                    // CASE 2: No Sub-items -> Render as NavLink (NOT Button)
-                    <NavLink
-                      to={menu.path}
-                      onClick={() => setMobileOpen(false)}
-                      className="flex items-center justify-between py-2 text-slate-800 font-medium w-full"
-                    >
-                      {menu.title}
-                    </NavLink>
-                  )}
+            <div className="p-5 flex justify-between items-center border-b">
+              <span className="font-bold text-lg text-slate-800">Menu</span>
+              <button onClick={() => setMobileOpen(false)} className="p-2 bg-slate-100 rounded-full">
+                <X className="w-5 h-5" />
+              </button>
+            </div>
 
-                  {/* Render Sub-items if open */}
+            <div className="p-4 space-y-2">
+              {menuItems.map((menu) => (
+                <div key={menu.title} className="border-b border-slate-50 last:border-0">
+                  <div 
+                    className="flex items-center justify-between py-3"
+                    onClick={() => {
+                        if (menu.sections) {
+                            setMobileExpandedMenu(mobileExpandedMenu === menu.title ? null : menu.title);
+                        }
+                    }}
+                  >
+                    <NavLink
+                        to={menu.path}
+                        onClick={(e) => {
+                            if(menu.sections) e.preventDefault();
+                            else setMobileOpen(false);
+                        }}
+                        // Mobile Active Title - UPDATED COLOR
+                        className={`font-semibold text-lg ${mobileExpandedMenu === menu.title ? 'text-[#80cb29]' : 'text-slate-800'}`}
+                    >
+                        {menu.title}
+                    </NavLink>
+                    {menu.sections && (
+                        <ChevronDown 
+                            className={`w-5 h-5 text-slate-400 transition-transform ${mobileExpandedMenu === menu.title ? 'rotate-180' : ''}`} 
+                        />
+                    )}
+                  </div>
+
                   <AnimatePresence>
-                    {menu.items && mobileDropdown === menu.title && (
+                    {menu.sections && mobileExpandedMenu === menu.title && (
                       <motion.div
                         initial={{ height: 0, opacity: 0 }}
                         animate={{ height: "auto", opacity: 1 }}
                         exit={{ height: 0, opacity: 0 }}
-                        className="overflow-hidden"
+                        className="overflow-hidden bg-slate-50 rounded-lg"
                       >
-                        <div className="pl-4 pb-2 space-y-2 border-l-2 border-slate-100 ml-2 mt-1">
-                          {menu.items.map((item) => (
-                            <NavLink
-                              key={item.label}
-                              to={item.path}
-                              onClick={() => setMobileOpen(false)}
-                              className="block py-1 text-sm text-slate-600 hover:text-blue-600"
-                            >
-                              {item.label}
-                            </NavLink>
-                          ))}
-                        </div>
+                        {menu.sections.map((section) => (
+                           <div key={section.heading} className="p-4 pb-0 last:pb-4">
+                               <h4 className="font-semibold text-sm text-slate-900 mb-2 uppercase tracking-wider">
+                                   {section.heading}
+                               </h4>
+                               <div className="flex flex-col space-y-2 border-l-2 border-slate-200 pl-3 ml-1">
+                                   {section.items.map((item) => (
+                                       <NavLink
+                                           key={item.label}
+                                           to={item.path}
+                                           onClick={() => setMobileOpen(false)}
+                                           // Mobile Sub-Link Hover - UPDATED COLOR
+                                           className="text-sm text-slate-600 py-1 hover:text-[#80cb29]"
+                                       >
+                                           {item.label}
+                                       </NavLink>
+                                   ))}
+                               </div>
+                           </div>
+                        ))}
                       </motion.div>
                     )}
                   </AnimatePresence>
                 </div>
               ))}
+              
+              <div className="pt-6 space-y-3">
+                 <NavLink 
+                    to="/login"
+                    onClick={() => setMobileOpen(false)}
+                    className="block w-full py-3 text-center border border-blue-600 text-blue-600 rounded-lg font-semibold hover:bg-blue-50"
+                 >
+                    Scholar Login
+                 </NavLink>
+                 <NavLink 
+                    to="/get-started"
+                    onClick={() => setMobileOpen(false)}
+                    className="block w-full py-3 text-center bg-blue-600 text-white rounded-lg font-bold shadow-md hover:bg-blue-700"
+                 >
+                    GET STARTED
+                 </NavLink>
+              </div>
             </div>
           </motion.div>
         )}

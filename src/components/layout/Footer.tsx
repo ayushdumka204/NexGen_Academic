@@ -27,8 +27,7 @@ const Footer: FC = () => {
 
   const handleClick = (): void => {
     toast({
-      title:
-        "This feature isn't implemented",
+      title: "This feature isn't implemented",
     });
   };
 
@@ -36,49 +35,53 @@ const Footer: FC = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
+  // Updated footer sections based on your request
   const footerSections: FooterSection[] = [
     {
-      title: "About",
-      links: ["About Us", "Our Team", "Institution", "Careers", "News"],
-    },
-    {
-      title: "Research",
+      title: "Quick Links",
       links: [
-        "Research Areas",
-        "Ongoing Projects",
-        "Completed Projects",
-        "Publications",
+        "About",
+        "Services",
+        "Pricing",
+        "Resources",
+        "Blog",
+        "Contact",
+        "Scholar Portal",
       ],
     },
     {
-      title: "Services",
+      title: "Popular Services",
       links: [
-        "Data Collection",
-        "Data Analysis",
-        "Evaluation & Review",
-        "Consulting",
-        "Training",
+        "Survey Research",
+        "Statistical Analysis",
+        "Thesis Support",
+        "Publication Help",
       ],
     },
     {
-      title: "Methodologies",
+      title: "Policies",
       links: [
-        "Quantitative",
-        "Qualitative",
-        "Mixed Methods",
-        "Experimental",
-        "Observationals",
+        "Privacy Policy",
+        "Terms of Service",
+        "Refund Policy",
+        "Research Ethics",
+        "Data Security",
       ],
-    },    
+    },
     {
-      title: "Resources",
+      title: "Connect",
       links: [
-        "Data & Tools",
-        "Documentation",
-        "News & Updates",
-        "Collaborations",
-        "FAQ",
+        "LinkedIn",
+        "YouTube",
+        "Twitter",
+        "Instagram",
+        "Facebook",
+        "Newsletter Signup",
       ],
+    },
+    {
+      title: "Certifications",
+      links: ["Certified", "Ethical Research Compliant"],
     },
   ];
 
@@ -120,15 +123,15 @@ const Footer: FC = () => {
                 <span className="text-white font-bold text-xl">NAR</span>
               </div>
               <div className="flex flex-col">
-                <span className="text-lg font-bold">
-                  NexGen Research
-                </span>
+                <span className="text-lg font-bold">NexGen Research</span>
                 <span className="text-xs text-blue-300">Academic</span>
               </div>
             </div>
 
             <p className="text-blue-200 mb-6 leading-relaxed">
-              Serving since last 18 years NexGen Market Research Services Pvt Ltd is a multidisciplinary market research agency, offers high quality marketing research, analysis and consulting services.
+              Serving since last 18 years NexGen Market Research Services Pvt
+              Ltd is a multidisciplinary market research agency, offers high
+              quality marketing research, analysis and consulting services.
             </p>
 
             <div className="space-y-3">
@@ -176,7 +179,7 @@ const Footer: FC = () => {
                   <li key={link}>
                     <button
                       onClick={handleClick}
-                      className="text-blue-200 hover:text-white transition-colors hover:translate-x-1 inline-block"
+                      className="text-blue-200 hover:text-white transition-colors hover:translate-x-1 inline-block text-left"
                     >
                       {link}
                     </button>
@@ -254,4 +257,3 @@ const Footer: FC = () => {
 };
 
 export default Footer;
-// end
