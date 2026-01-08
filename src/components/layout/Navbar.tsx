@@ -30,15 +30,15 @@ const menuItems: MenuItem[] = [
       {
         heading: "Who We Are",
         items: [
-          { label: "Our Mission & Vision", path: "/about/mission" },
-          { label: "Expert Team & Credentials", path: "/about/team" },
-          { label: "Why Choose NAR", path: "/about/why-us" },
+          { label: "Our Mission & Vision", path: "/missionandvision" },
+          { label: "Expert Team & Credentials", path: "/team" },
+          { label: "Why Choose NAR", path: "/why-nexgen" },
         ],
       },
       {
         heading: "Standards",
         items: [
-          { label: "Quality Assurance & Ethics", path: "/about/quality" },
+          { label: "Quality Assurance & Ethics", path: "/quality" },
           { label: "Client Testimonials", path: "/about/testimonials" },
         ],
       },

@@ -5,6 +5,10 @@ import {
   FlaskConical,
   Users,
   Award,
+  BookOpen,
+  FileText,
+  CheckCircle,
+  Globe
 } from "lucide-react";
 import { useToast } from "../components/ui/use-toast";
 
@@ -13,7 +17,8 @@ const Home: FC = () => {
 
   const handleClick = (): void => {
     toast({
-      title: "🚧 This feature isn't implemented yet",
+      title: "Button Clicked",
+      description: "This is where the button action happens.",
     });
   };
 
@@ -23,6 +28,7 @@ const Home: FC = () => {
       <section className="relative pt-12 pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-blue-100/50 via-indigo-100/30 to-transparent" />
 
+        {/* Animated Background Blobs (Design Element) */}
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 0.1, scale: 1 }}
@@ -38,8 +44,9 @@ const Home: FC = () => {
 
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
-            {/* LEFT */}
+            {/* LEFT COLUMN: Text Content */}
             <div className="space-y-8">
+              {/* Tagline / Badge */}
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -47,31 +54,33 @@ const Home: FC = () => {
                 className="inline-flex items-center gap-2 px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium"
               >
                 <Award className="w-4 h-4" />
-                <span>Market Research & Intelligence Experts</span>
+                <span>[ SHORT TAGLINE OR BRAND CATEGORY ]</span>
               </motion.div>
 
+              {/* Main Headline */}
               <motion.h1
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
                 className="max-w-2xl text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-[1.1] text-slate-900">
-                Turning Market Data Into
+                [ MAIN HERO HEADLINE ]
                 <br />
                 <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
-                  Confident Business Decisions
+                  [ HIGHLIGHTED KEYWORD PHRASE ]
                 </span>
               </motion.h1>
 
+              {/* Sub-headline / Description */}
               <motion.p
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
                 className="text-xl text-slate-600 leading-relaxed"
               >
-                We help organizations understand markets, customers, and competition
-                through structured research, analytics, and actionable insights.
+                [ Detailed sub-headline goes here. Explain what you do, who you help, and the primary value proposition of your service in 1-2 sentences. ]
               </motion.p>
 
+              {/* CTA Buttons */}
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -82,7 +91,7 @@ const Home: FC = () => {
                   onClick={handleClick}
                   className="group px-8 py-4 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-xl font-semibold hover:shadow-2xl hover:scale-105 transition-all duration-300 flex items-center gap-2"
                 >
-                  Explore Insights
+                  [ Primary CTA ]
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </button>
 
@@ -90,10 +99,11 @@ const Home: FC = () => {
                   onClick={handleClick}
                   className="px-8 py-4 bg-white text-blue-600 border-2 border-blue-600 rounded-xl font-semibold hover:bg-blue-50 hover:scale-105 transition-all duration-300"
                 >
-                  View Reports
+                  [ Secondary CTA ]
                 </button>
               </motion.div>
 
+              {/* Trust Indicators / Stats */}
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -102,27 +112,27 @@ const Home: FC = () => {
               >
                 <div className="flex items-center gap-3">
                   <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
-                    <FlaskConical className="w-6 h-6 text-blue-600" />
+                    <Users className="w-6 h-6 text-blue-600" />
                   </div>
                   <div>
-                    <p className="text-2xl font-bold text-slate-900">300+</p>
-                    <p className="text-sm text-slate-600">Market Studies</p>
+                    <p className="text-2xl font-bold text-slate-900">[ Number ]+</p>
+                    <p className="text-sm text-slate-600">[ Stat Label 1 ]</p>
                   </div>
                 </div>
 
                 <div className="flex items-center gap-3">
                   <div className="w-12 h-12 bg-indigo-100 rounded-full flex items-center justify-center">
-                    <Users className="w-6 h-6 text-indigo-600" />
+                    <BookOpen className="w-6 h-6 text-indigo-600" />
                   </div>
                   <div>
-                    <p className="text-2xl font-bold text-slate-900">1M+</p>
-                    <p className="text-sm text-slate-600">Consumer Interviews</p>
+                    <p className="text-2xl font-bold text-slate-900">[ Number ]+</p>
+                    <p className="text-sm text-slate-600">[ Stat Label 2 ]</p>
                   </div>
                 </div>
               </motion.div>
             </div>
 
-            {/* RIGHT */}
+            {/* RIGHT COLUMN: Hero Image */}
             <motion.div
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
@@ -130,8 +140,8 @@ const Home: FC = () => {
               className="relative"
             >
               <img
-                src="https://images.unsplash.com/photo-1701848055770-effbdb148e15"
-                alt="Market research analytics"
+                src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=2070&auto=format&fit=crop"
+                alt="[ Image Description ]"
                 className="rounded-2xl shadow-2xl w-full h-auto"
               />
             </motion.div>
@@ -139,9 +149,10 @@ const Home: FC = () => {
         </div>
       </section>
 
-      {/* ================= WHAT WE DO ================= */}
+      {/* ================= SERVICES / FEATURES GRID ================= */}
       <section className="py-24 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-7xl mx-auto">
+          {/* Section Header */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -150,31 +161,35 @@ const Home: FC = () => {
             className="text-center mb-20"
           >
             <h2 className="text-4xl md:text-5xl font-extrabold text-slate-900 mb-4">
-              Our Market Research Capabilities
+              [ Main Section Title ]
             </h2>
             <p className="text-xl text-slate-600 max-w-4xl mx-auto">
-              End-to-end research solutions designed to reduce uncertainty and
-              accelerate strategic growth.
+              [ Brief introductory text explaining the range of services or key features offered by the organization. ]
             </p>
           </motion.div>
 
+          {/* Cards Grid */}
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
               {
-                title: "Consumer Insights",
-                desc: "Deep understanding of customer needs, attitudes, and behaviors.",
+                title: "[ Service Title 1 ]",
+                desc: "[ Brief description of service 1 goes here. Explain the benefit. ]",
+                icon: BookOpen
               },
               {
-                title: "Market Sizing & Forecasting",
-                desc: "Reliable estimates of demand, growth, and opportunity.",
+                title: "[ Service Title 2 ]",
+                desc: "[ Brief description of service 2 goes here. Explain the benefit. ]",
+                icon: FileText
               },
               {
-                title: "Competitive Intelligence",
-                desc: "Track competitors, positioning, pricing, and strategies.",
+                title: "[ Service Title 3 ]",
+                desc: "[ Brief description of service 3 goes here. Explain the benefit. ]",
+                icon: FlaskConical
               },
               {
-                title: "Brand & Product Research",
-                desc: "Concept testing, pricing studies, and go-to-market validation.",
+                title: "[ Service Title 4 ]",
+                desc: "[ Brief description of service 4 goes here. Explain the benefit. ]",
+                icon: Globe
               },
             ].map((item, index) => (
               <motion.div
@@ -185,6 +200,9 @@ const Home: FC = () => {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 className="p-8 rounded-2xl border border-slate-200 bg-slate-50 hover:shadow-xl transition-all"
               >
+                <div className="w-12 h-12 bg-indigo-50 rounded-lg flex items-center justify-center mb-4 text-indigo-600">
+                    <item.icon className="w-6 h-6" />
+                </div>
                 <h3 className="text-xl font-bold text-slate-900 mb-3">
                   {item.title}
                 </h3>
@@ -197,9 +215,11 @@ const Home: FC = () => {
         </div>
       </section>
 
-      {/* ================= METHODOLOGY MIX ================= */}
+      {/* ================= METHODOLOGY / METRICS SECTION ================= */}
       <section className="py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-slate-50 to-blue-50">
         <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
+          
+          {/* Left Side: Text List */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -208,20 +228,20 @@ const Home: FC = () => {
             className="space-y-6"
           >
             <h2 className="text-4xl font-extrabold text-slate-900">
-              Our Research Methodology Mix
+              [ Methodology / Approach Title ]
             </h2>
             <p className="text-lg text-slate-600 max-w-xl">
-              Each project is customized using a balanced mix of methodologies
-              aligned with business objectives.
+              [ Description of how you work, your process, or why your approach is superior. ]
             </p>
             <ul className="space-y-3 text-slate-700">
-              <li>✔ Quantitative & Qualitative Research</li>
-              <li>✔ Primary & Secondary Data Collection</li>
-              <li>✔ Advanced Analytics & Forecast Models</li>
-              <li>✔ Insight-led Reporting & Recommendations</li>
+              <li className="flex items-center gap-2"><CheckCircle className="w-5 h-5 text-green-500"/> [ Key Point / Benefit 1 ]</li>
+              <li className="flex items-center gap-2"><CheckCircle className="w-5 h-5 text-green-500"/> [ Key Point / Benefit 2 ]</li>
+              <li className="flex items-center gap-2"><CheckCircle className="w-5 h-5 text-green-500"/> [ Key Point / Benefit 3 ]</li>
+              <li className="flex items-center gap-2"><CheckCircle className="w-5 h-5 text-green-500"/> [ Key Point / Benefit 4 ]</li>
             </ul>
           </motion.div>
 
+          {/* Right Side: Animated Stats/Bars */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -230,10 +250,10 @@ const Home: FC = () => {
             className="bg-slate-900 text-white rounded-2xl shadow-2xl p-8"
           >
             {[
-              { label: "Quantitative Research", value: 45, color: "bg-blue-500" },
-              { label: "Qualitative Research", value: 30, color: "bg-indigo-500" },
-              { label: "Competitive Intelligence", value: 15, color: "bg-cyan-500" },
-              { label: "Advanced Analytics", value: 10, color: "bg-emerald-500" },
+              { label: "[ Metric Label A ]", value: 98, color: "bg-blue-500" },
+              { label: "[ Metric Label B ]", value: 100, color: "bg-indigo-500" },
+              { label: "[ Metric Label C ]", value: 95, color: "bg-cyan-500" },
+              { label: "[ Metric Label D ]", value: 100, color: "bg-emerald-500" },
             ].map((item, index) => (
               <div key={item.label} className="mb-5">
                 <div className="flex justify-between text-sm mb-1">
@@ -259,4 +279,3 @@ const Home: FC = () => {
 };
 
 export default Home;
-// end
