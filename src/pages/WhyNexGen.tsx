@@ -52,7 +52,7 @@ const WhyChooseUs: FC = () => {
                 className="inline-flex items-center gap-2 px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium"
               >
                 <Award className="w-4 h-4" />
-                <span>The NexGen Advantage</span>
+                <span>[ HERO TAGLINE / CATEGORY ]</span>
               </motion.div>
 
               <motion.h1
@@ -61,9 +61,9 @@ const WhyChooseUs: FC = () => {
                 transition={{ duration: 0.8, delay: 0.2 }}
                 className="max-w-2xl text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-[1.1] text-slate-900"
               >
-                Why Leading Scholars <br />
+                [ MAIN HERO HEADING ] <br />
                 <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
-                  Trust NexGen Research
+                  [ HIGHLIGHTED KEYWORD ]
                 </span>
               </motion.h1>
 
@@ -73,7 +73,7 @@ const WhyChooseUs: FC = () => {
                 transition={{ duration: 0.8, delay: 0.4 }}
                 className="text-xl text-slate-600 leading-relaxed"
               >
-                We don't just write papers; we build academic careers. Experience the difference of working with a team that prioritizes quality, ethics, and your success above all else.
+                [ Brief introductory text explaining the core value proposition. Why should the user choose this service over others? ]
               </motion.p>
 
               <motion.div
@@ -82,7 +82,7 @@ const WhyChooseUs: FC = () => {
                 transition={{ duration: 0.8, delay: 0.6 }}
               >
                 <button className="group px-8 py-4 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-xl font-semibold hover:shadow-2xl hover:scale-105 transition-all duration-300 flex items-center gap-2">
-                  Get Started Today
+                  [ Primary CTA Button ]
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </button>
               </motion.div>
@@ -97,7 +97,7 @@ const WhyChooseUs: FC = () => {
             >
               <img
                 src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=2070&auto=format&fit=crop"
-                alt="NexGen Team Collaboration"
+                alt="[ Image Description ]"
                 className="rounded-2xl shadow-2xl w-full h-auto"
               />
             </motion.div>
@@ -105,7 +105,7 @@ const WhyChooseUs: FC = () => {
         </div>
       </section>
 
-      {/* ================= MAIN BENEFITS GRID ================= */}
+      {/* ================= SECTION 1: BENEFITS GRID ================= */}
       <section className="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
         <motion.div
           initial="hidden"
@@ -115,10 +115,10 @@ const WhyChooseUs: FC = () => {
           className="text-center mb-16"
         >
           <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900">
-            Excellence in Every Detail
+            [ SECTION 1 TITLE ]
           </h2>
           <p className="mt-4 text-slate-600 max-w-2xl mx-auto text-lg">
-            Our commitment to academic standards sets us apart. Here is why PhD candidates and researchers prefer our services.
+            [ Subtitle explaining the commitment to quality or specific standards set by the organization. ]
           </p>
         </motion.div>
 
@@ -126,43 +126,43 @@ const WhyChooseUs: FC = () => {
           {[
             {
               icon: Users,
-              title: "PhD Qualified Team",
-              desc: "Work directly with subject matter experts who hold PhDs from reputed universities. We match you with a mentor in your specific domain.",
+              title: "[ Benefit Title 1 ]",
+              desc: "[ Description of benefit 1. Explain the team qualification or expertise level. ]",
               color: "text-blue-600",
               bg: "bg-blue-50"
             },
             {
               icon: Clock,
-              title: "On-Time Delivery",
-              desc: "We understand strict university deadlines. Our structured workflow ensures you receive your drafts well before submission dates.",
+              title: "[ Benefit Title 2 ]",
+              desc: "[ Description of benefit 2. Explain the turnaround time or speed efficiency. ]",
               color: "text-indigo-600",
               bg: "bg-indigo-50"
             },
             {
               icon: ShieldCheck,
-              title: "0% Plagiarism Policy",
-              desc: "We guarantee 100% original content. Every document passes through advanced plagiarism detection tools (Turnitin) before delivery.",
+              title: "[ Benefit Title 3 ]",
+              desc: "[ Description of benefit 3. Explain the guarantee or quality assurance policy. ]",
               color: "text-emerald-600",
               bg: "bg-emerald-50"
             },
             {
               icon: Lock,
-              title: "Full Confidentiality",
-              desc: "Your research idea and personal data are safe with us. We sign Non-Disclosure Agreements (NDAs) to protect your intellectual property.",
+              title: "[ Benefit Title 4 ]",
+              desc: "[ Description of benefit 4. Explain privacy, security, or confidentiality measures. ]",
               color: "text-amber-600",
               bg: "bg-amber-50"
             },
             {
               icon: FileText,
-              title: "End-to-End Support",
-              desc: "From topic selection to the final viva defense, we are with you at every stage. No need to hire multiple agencies for different chapters.",
+              title: "[ Benefit Title 5 ]",
+              desc: "[ Description of benefit 5. Explain the comprehensive nature of the service. ]",
               color: "text-purple-600",
               bg: "bg-purple-50"
             },
             {
               icon: Headphones,
-              title: "24/7 Support",
-              desc: "Research stress doesn't sleep, and neither do we. Our dedicated support team is available round the clock to answer your queries.",
+              title: "[ Benefit Title 6 ]",
+              desc: "[ Description of benefit 6. Explain the support availability or customer service. ]",
               color: "text-rose-600",
               bg: "bg-rose-50"
             }
@@ -192,7 +192,7 @@ const WhyChooseUs: FC = () => {
         </div>
       </section>
 
-      {/* ================= COMPARISON SECTION ================= */}
+      {/* ================= SECTION 2: COMPARISON ================= */}
       <section className="bg-slate-50 py-24 px-4 sm:px-6 lg:px-8 border-y border-slate-100">
         <div className="max-w-7xl mx-auto">
           <motion.div
@@ -202,23 +202,24 @@ const WhyChooseUs: FC = () => {
              variants={fadeInUp}
              className="grid lg:grid-cols-2 gap-16 items-center"
           >
+            {/* Comparison Text */}
             <div>
               <span className="uppercase tracking-widest text-sm font-semibold text-indigo-600">
-                The Difference
+                [ SECTION TAG ]
               </span>
               <h2 className="mt-3 text-3xl sm:text-4xl font-extrabold text-slate-900 mb-6">
-                Freelancers vs. NexGen Academic Research
+                [ COMPARISON HEADING ]
               </h2>
               <p className="text-lg text-slate-600 mb-8 leading-relaxed">
-                While freelancers may offer lower rates, they often lack the reliability, depth, and accountability required for doctoral-level research. NexGen offers a professional, institutional approach.
+                [ Detailed text comparing this service against competitors or alternatives. Explain the unique selling point (USP). ]
               </p>
               
               <ul className="space-y-4">
                 {[
-                  "Guaranteed revisions until approval.",
-                  "Formal contract and invoice for transparency.",
-                  "Access to paid databases (Scopus/WoS).",
-                  "Dedicated quality assurance team."
+                  "[ Key Differentiator 1 ]",
+                  "[ Key Differentiator 2 ]",
+                  "[ Key Differentiator 3 ]",
+                  "[ Key Differentiator 4 ]"
                 ].map((point, i) => (
                    <li key={i} className="flex items-center gap-3">
                      <div className="w-6 h-6 rounded-full bg-green-100 flex items-center justify-center text-green-600 shrink-0">
@@ -230,6 +231,7 @@ const WhyChooseUs: FC = () => {
               </ul>
             </div>
 
+            {/* Comparison Card/Visual */}
             <div className="relative">
               {/* Abstract decorative background */}
               <div className="absolute inset-0 bg-gradient-to-tr from-blue-200 to-indigo-200 rounded-3xl transform rotate-3 blur-sm" />
@@ -237,34 +239,34 @@ const WhyChooseUs: FC = () => {
                 <div className="space-y-6">
                   {/* Row 1 */}
                   <div className="flex items-center justify-between border-b border-slate-100 pb-4">
-                    <span className="font-semibold text-slate-600">Reliability</span>
+                    <span className="font-semibold text-slate-600">[ Criteria 1 ]</span>
                     <div className="flex items-center gap-8">
-                      <span className="text-sm text-red-400">Low (Freelance)</span>
-                      <span className="text-sm font-bold text-green-600">High (NexGen)</span>
+                      <span className="text-sm text-red-400">[ Low Status ]</span>
+                      <span className="text-sm font-bold text-green-600">[ High Status ]</span>
                     </div>
                   </div>
                    {/* Row 2 */}
                    <div className="flex items-center justify-between border-b border-slate-100 pb-4">
-                    <span className="font-semibold text-slate-600">Data Security</span>
+                    <span className="font-semibold text-slate-600">[ Criteria 2 ]</span>
                     <div className="flex items-center gap-8">
-                      <span className="text-sm text-red-400">Risk</span>
-                      <span className="text-sm font-bold text-green-600">Guaranteed</span>
+                      <span className="text-sm text-red-400">[ Risk Status ]</span>
+                      <span className="text-sm font-bold text-green-600">[ Safe Status ]</span>
                     </div>
                   </div>
                    {/* Row 3 */}
                    <div className="flex items-center justify-between border-b border-slate-100 pb-4">
-                    <span className="font-semibold text-slate-600">Expertise</span>
+                    <span className="font-semibold text-slate-600">[ Criteria 3 ]</span>
                     <div className="flex items-center gap-8">
-                      <span className="text-sm text-red-400">Varies</span>
-                      <span className="text-sm font-bold text-green-600">Vetted PhDs</span>
+                      <span className="text-sm text-red-400">[ Variable Status ]</span>
+                      <span className="text-sm font-bold text-green-600">[ Expert Status ]</span>
                     </div>
                   </div>
                    {/* Row 4 */}
                    <div className="flex items-center justify-between">
-                    <span className="font-semibold text-slate-600">Support</span>
+                    <span className="font-semibold text-slate-600">[ Criteria 4 ]</span>
                     <div className="flex items-center gap-8">
-                      <span className="text-sm text-red-400">Limited</span>
-                      <span className="text-sm font-bold text-green-600">24/7 Dedicated</span>
+                      <span className="text-sm text-red-400">[ Limited Status ]</span>
+                      <span className="text-sm font-bold text-green-600">[ Full Status ]</span>
                     </div>
                   </div>
                 </div>
@@ -274,15 +276,15 @@ const WhyChooseUs: FC = () => {
         </div>
       </section>
 
-      {/* ================= STATS SECTION ================= */}
+      {/* ================= SECTION 3: STATS ================= */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white border-b border-slate-100">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             {[
-              { label: "Years Experience", value: "10+" },
-              { label: "Projects Delivered", value: "5000+" },
-              { label: "Client Satisfaction", value: "99%" },
-              { label: "Subject Experts", value: "150+" },
+              { label: "[ Stat Label 1 ]", value: "[ Value 1 ]" },
+              { label: "[ Stat Label 2 ]", value: "[ Value 2 ]" },
+              { label: "[ Stat Label 3 ]", value: "[ Value 3 ]" },
+              { label: "[ Stat Label 4 ]", value: "[ Value 4 ]" },
             ].map((stat, i) => (
               <motion.div
                 key={i}
@@ -304,7 +306,7 @@ const WhyChooseUs: FC = () => {
         </div>
       </section>
 
-      {/* ================= CTA SECTION (UPDATED: White BG, No Card) ================= */}
+      {/* ================= CTA SECTION ================= */}
       <section className="py-24 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-5xl mx-auto text-center">
           <motion.div
@@ -314,18 +316,18 @@ const WhyChooseUs: FC = () => {
              variants={fadeInUp}
           >
             <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 mb-6">
-              Ready to Accelerate Your Research?
+              [ FINAL CTA HEADING ]
             </h2>
             <p className="text-lg text-slate-600 max-w-2xl mx-auto mb-10 leading-relaxed">
-              Join thousands of successful scholars who chose NexGen. Get a free consultation and quote for your project today.
+              [ Concluding text encouraging the user to take action. Mention free consultations, quotes, or joining the successful client base. ]
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
               <button className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-xl font-bold hover:shadow-xl hover:scale-105 transition-all duration-300">
-                Get Free Quote
+                [ Primary Action ]
                 <ArrowRight className="w-5 h-5" />
               </button>
               <button className="inline-flex items-center justify-center gap-2 px-8 py-4 border-2 border-slate-200 text-slate-700 rounded-xl font-semibold hover:bg-slate-50 hover:border-slate-300 transition-all duration-300">
-                View Samples
+                [ Secondary Action ]
               </button>
             </div>
           </motion.div>
